@@ -1,0 +1,11 @@
+headers = tox/tox.h tox/toxav.h tox/toxencryptsave.h
+headerFilter = tox/*
+
+compilerOpts.linux = -I/usr/local/include
+linkerOpts.linux = -L/usr/local/lib -rpath /usr/local/lib -ltoxcore
+
+---
+// Needed so cinterop produces a type for forward declared structs.
+// https://youtrack.jetbrains.com/issue/KT-29417
+struct Tox {};
+struct ToxAV {};
